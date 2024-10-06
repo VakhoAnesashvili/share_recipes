@@ -1,0 +1,23 @@
+{% comment %} <h1>book details</h1>
+
+<form method='POST'>
+    {%{% csrf_token %}%}
+    {{form.as_p}}
+    <button type = 'submit'>Save</button>
+</form> {% endcomment %}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ recipe.title }}</title>
+</head>
+<body>
+    <h1>{{ recipe.title }}</h1>
+    <p><strong>Ingredients:</strong> {{ recipe.ingredients }}</p>
+    <p><strong>Instructions:</strong> {{ recipe.instructions }}</p>
+    <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> |
+    <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a> |
+    <a href="{% url 'recipe_list' %}">Back to List</a>
+</body>
+</html>
+

@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Recipe List</title>
+</head>
+<body>
+    <h1>All Recipes</h1>
+    <a href="{% url 'recipe_create' %}">Add New Recipe</a>
+    <ul>
+        {% for recipe in recipes %}
+            <li>
+                <a href="{% url 'recipe_detail' recipe.pk %}">{{ recipe.title }}</a> - 
+                <a href="{% url 'recipe_edit' recipe.pk %}">Edit</a> - 
+                <a href="{% url 'recipe_delete' recipe.pk %}">Delete</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

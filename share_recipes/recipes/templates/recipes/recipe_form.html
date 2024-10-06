@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{% if form.instance.pk %}Edit Recipe{% else %}Add Recipe{% endif %}</title>
+</head>
+<body>
+    <h1>{% if form.instance.pk %}Edit Recipe{% else %}Add Recipe{% endif %}</h1>
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">{% if form.instance.pk %}Update Recipe{% else %}Create Recipe{% endif %}</button>
+    </form>
+    <a href="{% url 'recipe_list' %}">Cancel</a>
+</body>
+</html>
